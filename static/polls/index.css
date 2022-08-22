@@ -1,0 +1,30 @@
+body {
+  padding: 0%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul {
+  list-style-type: none;;
+  width: 50%;
+}
+
+p strong {
+  color: red !important;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: xx-large;
+  cursor: pointer;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  height: 50px;
+}
