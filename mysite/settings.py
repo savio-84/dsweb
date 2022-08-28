@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-+1i8@&flw56#jcbqfn+^z)4_w5e@#y8^74lhzv5q5e(9o^*=yf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saviocarvalho84.pythonanywhere.com']
+ALLOWED_HOSTS = ['saviocarvalho84.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'mock.apps.MockConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -130,4 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = '/home/saviocarvalho84/mysite/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/saviocarvalho84/mysite/static'
+# STATIC_ROOT = '/home/savio/tads/dsweb/static'
 STATIC_URL = '/static/'

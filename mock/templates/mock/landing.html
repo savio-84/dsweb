@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mock/landing.css' %}">
+    <title>Mock App</title>
+</head>
+<body>
+    <header>
+        <button><a href="{% url 'mock:login' %}">Login</a></button>
+        <button><a href="{% url 'mock:register' %}">Cadastre-se</a></button>
+    </header>
+    <section>
+        <h1>Questões disponíveis:</h1>
+        {% for question in questions %}
+            <article>
+                <h2>{{question.question_text}}</h2>
+                
+                <div style="display: flex; flex-direction: column;" >
+                    {% for choice in question.choice_set.all %}
+                    <label for="{{choice.choice_text}}">{{choice.choice_text}}</label>
+                    <!-- <input type="radio" name="{{ question.id }}" value="{{ choice.id }}"> -->
+                    {% endfor %}
+                </div>
+            </article>
+
+        {% endfor %}
+    </section>
+</body>
+</html>

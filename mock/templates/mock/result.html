@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mock/result.css' %}">
+    <title>{{result.test.title}}</title>
+</head>
+<body>
+    <header>
+        <button><a href="{% url 'mock:dashboard' %}">Voltar</a></button>
+    </header>
+    <h1>{{result.test.title}}</h1>
+    <section>
+        <header>
+            <h2> A prova valia: {{ result.value }}</h1>
+            <h2> Sua nota foi: {{ result.result }}</h2>
+        </header>
+
+        <article>
+            {% for choiceResult in choiceResults %}
+            <h2>{{choiceResult.choice.question.question_text}}</h2>
+            <div>
+                {% for choice in choiceResult.choice.question.choice_set.all %}
+                <label for="{{choice.choice_text}}">{{choice.choice_text}} {% if choice.is_correct == True %} (Correta) {% else %} (Incorreta) {% endif %}  </label>
+                <!-- {% if choice.marked == True %} <span>marked</span>  {% endif %} -->
+                {% endfor %}
+            </div>
+            
+            <div>
+            <h4>Minha escolha:</h3>
+                <span>{{ choiceResult.choice }} {% if choiceResult.choice.is_correct == True %} (Correta) {% else %} (Incorreta) {% endif %} </span>
+            </div>
+            {% endfor %}
+        </article>
+        
+        </body>
+    </section>
+</html>
